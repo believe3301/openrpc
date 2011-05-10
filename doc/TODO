@@ -1,0 +1,18 @@
+2011-03-22
+	1 async queue
+	2 async occur exception.
+	3 rpc request sequence.or it occur exception
+	4 performance test and wiki demo
+	5 use automake and autoconf
+	
+	6 rpc duplex
+	7 rpc support more channel (http/unix domain)
+	8 rpc support binary protocol
+	
+	
+2011-03-25
+	1 timeout process
+	2 thread encapsulation
+	3 support more event
+	4 auto connected
+	5 slib memory manage

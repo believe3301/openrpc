@@ -1,0 +1,92 @@
+the open rpc based text protocal
+
+similar with http.
+
+request:
+CALL methodname@servicename RPC/1.0\n
+seq:seq-no\n
+body-len:len\n
+\n
+input bytes
+
+response:
+RPC/1.0 200 OK\n
+seq:seq-no\n
+body-len:len\n\
+\n
+output bytes
+
+based on libev
+
+/*************************************************************************************/
+focus on ZeroMQ libev
+
+core struct:
+rpc_server
+rpc_service
+rpc_callback
+rpc_conn
+
+rpc_request
+rpc_response
+
+rpc_thread(inner data struct)
+
+ client api;
+ 
+ two queue:
+ 
+ peinding queue => send queue
+ 
+rpc_client_connect(host,port,rpcclient** client);
+rpc_client_call_async(rpcclient* client,servicename,methodname,inputdata,inputlen,callback);
+request->add to thread request queue ->select thread and notify->send request queue
+
+response -> event loop -> read response -> pop send queue -> call callback.
+
+
+rpc_request
+{
+	callback;
+}
+
+to send queue,
+
+
+rpc_client
+{
+	rpc_thread[3];
+}
+
+rpc_server*
+rpc_server_create (port)
+{
+	dispather_thread;
+	server_thread[4]; 1 to accept conn ,3 to process request
+	service_map(key:servicename@methodname,value:rpcservice)
+}
+
+rpc_server_start
+
+rpc_service
+{
+	servicename,
+	methodname,
+	callback
+}
+
+connect quest -> 
+
+rpc_request -> event loop -> read request -> search service_map -> call callback -> rpc_return(add send iovec) -> send
+
+
+rpc_callback;
+
+rpc_server_create();
+
+rpc_server_regservice(servicename,methodname,rpc_callback);
+
+rpc_server_start();
+
+finished:
+first version 2011-03-21

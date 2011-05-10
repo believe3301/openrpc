@@ -1,0 +1,6 @@
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/include/hashtable /usr/local/include/ev)
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+ADD_EXECUTABLE(testclient testclient.c)
+ADD_EXECUTABLE(testserver testserver.c)
+TARGET_LINK_LIBRARIES(testclient openrpc pthread ev)
+TARGET_LINK_LIBRARIES(testserver openrpc pthread ev)

@@ -1,0 +1,3 @@
+PROJECT(openrpc)
+ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(sample)

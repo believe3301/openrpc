@@ -1,0 +1,12 @@
+openrpc is an open rpc framework,support sync and async call.
+
+the event loop based on libev.
+
+openrpc can use for commerical.
+
+3q for libev/memcached/glib and my team amigo.
+
+please report bug to me,3q.
+
+author:yanghu
+mail:believe3301@gmail.com
